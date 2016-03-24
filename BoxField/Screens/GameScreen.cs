@@ -39,6 +39,7 @@ namespace BoxField
         int xChange = 7;
 
         Random rand = new Random();
+        Player p = new Player(500, 400, 30, 4);
 
         public GameScreen()
         {
@@ -198,7 +199,18 @@ namespace BoxField
                 cubesLeft.RemoveAt(0);
                 cubesRight.RemoveAt(0);
             }
-            
+
+            #endregion
+
+            #region movePlayer
+            if (leftArrowDown)
+            {
+                p.move(p, "left");
+            }
+            else if (rightArrowDown)
+            {
+                p.move(p, "right");
+            }
             #endregion
 
             Refresh();
@@ -217,6 +229,7 @@ namespace BoxField
                 e.Graphics.DrawRectangle(cubePen, c.x, c.y, c.size, c.size);
                 e.Graphics.FillRectangle(colors[c.colour], c.x, c.y, c.size, c.size);
             }
+            e.Graphics.DrawEllipse(cubePen, p.x, p.y, p.size, p.size);
         }
 
 
