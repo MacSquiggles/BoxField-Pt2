@@ -20,13 +20,24 @@ namespace BoxField
         }
         public void move(Player p, string direction)
         {
-            if (direction == "left")
+            if (p.x > 0 && p.x < 865)
             {
-                p.x -= p.speed;
+                if (direction == "left")
+                {
+                    p.x -= p.speed;
+                }
+                else
+                {
+                    p.x += p.speed;
+                }
             }
-            else
+            else if(p.x == 0 && direction == "right")
             {
                 p.x += p.speed;
+            }
+            else if (p.x >= 865 && direction == "left")
+            {
+                p.x -= p.speed;
             }
         }
         public bool collision (Player p, Cube c)

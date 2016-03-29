@@ -25,9 +25,9 @@ namespace BoxField
         
         Pen cubePen = new Pen(Color.White, 3);
 
-        SolidBrush whiteBrush = new SolidBrush(Color.Orange);
-        SolidBrush redBrush = new SolidBrush(Color.Red);
-        SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
+        SolidBrush purpleBrush = new SolidBrush(Color.Purple);
+        SolidBrush blueBrush = new SolidBrush(Color.RoyalBlue);
+        SolidBrush greenBrush = new SolidBrush(Color.SeaGreen);
 
         SolidBrush[] colors;
 
@@ -45,7 +45,7 @@ namespace BoxField
         {
             InitializeComponent();
 
-            colors = new SolidBrush[] { whiteBrush, redBrush, yellowBrush };
+            colors = new SolidBrush[] { purpleBrush, blueBrush, greenBrush };
         }
 
         private void GameScreen_Load(object sender, EventArgs e)
@@ -213,6 +213,26 @@ namespace BoxField
             }
             #endregion
 
+            #region collision
+            foreach (Cube c in cubesLeft)
+            {
+                if (p.collision(p, c) == true)
+                {
+                    gameLoop.Enabled = false;
+                    endGame();
+                }
+            }
+            foreach (Cube c in cubesRight)
+            {
+                if (p.collision(p, c) == true)
+                {
+                    gameLoop.Enabled = false;
+                    endGame();
+
+                }
+            }
+            #endregion
+
             Refresh();
         }
 
@@ -232,6 +252,15 @@ namespace BoxField
             e.Graphics.DrawEllipse(cubePen, p.x, p.y, p.size, p.size);
         }
 
+        private void endGame()
+        {
+            endScreen es = new endScreen();
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+            es.Location = new Point((f.Width - es.Width) / 2, (f.Height - es.Height) / 2);
+            f.Controls.Add(es);
+            es.BringToFront();
+        }
 
     }
 }

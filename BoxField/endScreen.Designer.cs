@@ -1,6 +1,6 @@
 ﻿namespace BoxField
 {
-    partial class GameScreen
+    partial class endScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.gameLoop = new System.Windows.Forms.Timer(this.components);
+            this.endLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // gameLoop
+            // endLabel
             // 
-            this.gameLoop.Enabled = true;
-            this.gameLoop.Interval = 8;
-            this.gameLoop.Tick += new System.EventHandler(this.gameLoop_Tick);
+            this.endLabel.AutoSize = true;
+            this.endLabel.Font = new System.Drawing.Font("Magneto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endLabel.Location = new System.Drawing.Point(380, 194);
+            this.endLabel.Name = "endLabel";
+            this.endLabel.Size = new System.Drawing.Size(629, 117);
+            this.endLabel.TabIndex = 0;
+            this.endLabel.Text = "Game Over";
             // 
-            // GameScreen
+            // endScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkCyan;
-            this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "GameScreen";
+            this.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.Controls.Add(this.endLabel);
+            this.Name = "endScreen";
             this.Size = new System.Drawing.Size(1350, 769);
-            this.Load += new System.EventHandler(this.GameScreen_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Timer gameLoop;
+        private System.Windows.Forms.Label endLabel;
     }
 }
