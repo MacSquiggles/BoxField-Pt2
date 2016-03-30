@@ -24,6 +24,7 @@ namespace BoxField
         int gap = 300;
         
         Pen cubePen = new Pen(Color.White, 3);
+        Pen playerPen = new Pen(Color.MediumVioletRed, 3);
 
         SolidBrush purpleBrush = new SolidBrush(Color.Purple);
         SolidBrush blueBrush = new SolidBrush(Color.RoyalBlue);
@@ -249,7 +250,7 @@ namespace BoxField
                 e.Graphics.DrawRectangle(cubePen, c.x, c.y, c.size, c.size);
                 e.Graphics.FillRectangle(colors[c.colour], c.x, c.y, c.size, c.size);
             }
-            e.Graphics.DrawEllipse(cubePen, p.x, p.y, p.size, p.size);
+            e.Graphics.DrawEllipse(playerPen, p.x, p.y, p.size, p.size);
         }
 
         private void endGame()
